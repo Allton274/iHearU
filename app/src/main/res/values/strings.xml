@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">iHearU</string>
+    <string name="emergency_msg">Scroll all three sliders to the right to send a message to your emergency contacts, or click the reset button to reset the sliders. Only when all three are to the right will the Confirm button pop up.</string>
+    <string name="emergency_title">Report Emergency</string>
+    <string name="app_title">iHearU</string>
+    <string name="logo_desc">iHearU Logo</string>
 </resources>

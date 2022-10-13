@@ -1,18 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:overScrollMode="ifContentScrolls"
+    >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="10sp"
+                            android:background="@drawable/ic_baseline_settings_24"
+                            android:id="@+id/settingsBtn"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/app_title"
+                            android:textSize="50sp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:background="@drawable/ic_launcher_background"
+                            android:contentDescription="@string/logo_desc" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:text="@string/emergency_title"
+                    android:textSize="30sp"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center_horizontal"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:textColor="@color/black"
+                    android:text="@string/emergency_msg"
+                    android:textSize="22sp"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"/>
+
+                <com.google.android.material.slider.Slider
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/slider1"
+                    android:layout_gravity="center"
+                    app:thumbColor="#d4330f"
+                    app:trackColor="#4b9ff6"
+                    android:layout_marginTop="50dp"
+                    android:valueTo="10"/>
+                <com.google.android.material.slider.Slider
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/slider2"
+                    android:layout_gravity="center"
+                    app:thumbColor="#d4330f"
+                    app:trackColor="#4b9ff6"
+                    android:valueTo="10"/>
+                <com.google.android.material.slider.Slider
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/slider3"
+                    android:layout_gravity="center"
+                    app:thumbColor="#d4330f"
+                    app:trackColor="#4b9ff6"
+                    android:valueTo="10"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/confirmBtn"
+                    android:text="Confirm"
+                    android:layout_gravity="center"
+                    android:visibility="invisible"
+                    android:layout_marginTop="30dp"/>
+        </LinearLayout>
+
+
+
+
+
+
+
+
+</FrameLayout>
