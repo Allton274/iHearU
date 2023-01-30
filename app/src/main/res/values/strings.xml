@@ -4,4 +4,26 @@
     <string name="emergency_title">Report Emergency</string>
     <string name="app_title">iHearU</string>
     <string name="logo_desc">iHearU Logo</string>
+    <string name="confirm">Confirm</string>
+    <string name="your_profile">Your Profile</string>
+    <string name="background_info">We\'ll need some background information to provide the best support we can.</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="profile">Profile</string>
+    <string name="ihearu_logo">iHearU Logo</string>
+    <string name="reset">Reset</string>
 </resources>

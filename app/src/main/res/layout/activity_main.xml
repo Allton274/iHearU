@@ -1,48 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:overScrollMode="ifContentScrolls"
+    style="@style/Theme.Design.NoActionBar"
     >
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
-
-
-
-
-                <FrameLayout
+                <androidx.appcompat.widget.Toolbar
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_height="?attr/actionBarSize"
+                    android:id="@+id/toolbar"
+                    android:background="@color/material_dynamic_primary40"
+                    android:elevation="4dp"
+                    android:theme="@style/BarTheme"
                     >
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="10sp"
-                            android:background="@drawable/ic_baseline_settings_24"
-                            android:id="@+id/settingsBtn"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/app_title"
-                            android:textSize="50sp"
-                            android:textStyle="bold"
-                            android:layout_gravity="center"
-                            />
+<!--                        TODO INSERT LOGO THRU IMAGEVIEW-->
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="end"
-                            android:background="@drawable/ic_launcher_background"
-                            android:contentDescription="@string/logo_desc" />
-                </FrameLayout>
+                            />
+                </androidx.appcompat.widget.Toolbar>
+
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -50,21 +38,24 @@
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:text="@string/emergency_title"
-                    android:textSize="30sp"
+                    android:textSize="40sp"
                     android:layout_marginTop="30dp"
+                    android:fontFamily="sans-serif-black"
                     android:layout_gravity="center_horizontal"/>
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:textColor="@color/black"
                     android:text="@string/emergency_msg"
                     android:textSize="22sp"
                     android:layout_marginTop="30dp"
+                    android:layout_marginStart="7pt"
+                    android:layout_marginEnd="7pt"
                     android:layout_gravity="center_horizontal"
-                    android:textAlignment="center"/>
+                    android:fontFamily="@font/helvetica"
+                    />
 
                 <com.google.android.material.slider.Slider
                     android:layout_width="200sp"
@@ -92,14 +83,32 @@
                     app:trackColor="#4b9ff6"
                     android:valueTo="10"/>
 
-                <Button
-                    android:layout_width="wrap_content"
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/confirmBtn"
-                    android:text="Confirm"
-                    android:layout_gravity="center"
-                    android:visibility="invisible"
-                    android:layout_marginTop="30dp"/>
+                    android:layout_marginTop="35dp"
+                    android:layout_gravity="center_horizontal">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/confirmBtn"
+                        android:text="@string/confirm"
+                        android:visibility="invisible"
+                        android:layout_marginStart="50pt"
+                        android:backgroundTint="#037f00"
+
+                        />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/resetBtn"
+                        android:text="@string/reset"
+                        android:backgroundTint="#e82134"
+                        android:layout_marginStart="10dp"
+                        android:visibility="visible"/>
+                </LinearLayout>
+
         </LinearLayout>
 
 
