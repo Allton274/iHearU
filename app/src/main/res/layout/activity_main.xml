@@ -62,23 +62,27 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/slider1"
                     android:layout_gravity="center"
+                    android:contentDescription="Slider 1"
                     app:thumbColor="#d4330f"
                     app:trackColor="#4b9ff6"
                     android:layout_marginTop="50dp"
                     android:valueTo="10"/>
-                <com.google.android.material.slider.Slider
-                    android:layout_width="200sp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/slider2"
-                    android:layout_gravity="center"
-                    app:thumbColor="#d4330f"
-                    app:trackColor="#4b9ff6"
-                    android:valueTo="10"/>
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider2"
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="Slider 2"
+                android:valueTo="10"
+                app:thumbColor="#d4330f"
+                app:trackColor="#4b9ff6" />
                 <com.google.android.material.slider.Slider
                     android:layout_width="200sp"
                     android:layout_height="wrap_content"
                     android:id="@+id/slider3"
                     android:layout_gravity="center"
+                    android:contentDescription="Slider 3"
                     app:thumbColor="#d4330f"
                     app:trackColor="#4b9ff6"
                     android:valueTo="10"/>

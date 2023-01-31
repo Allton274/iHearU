@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -57,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         slider2 = findViewById(R.id.slider2);
 
         slider3 = findViewById(R.id.slider3);
-
 
 
 
