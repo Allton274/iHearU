@@ -11,16 +11,13 @@
 
             />
 
-        <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
+        <EditTextPreference
             app:key="dangerPhrase"
             app:title="Danger Phrase:"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
-            app:key="name"
+            app:key="emergencyMsg"
             app:title="Emergency Message Content:"
             app:useSimpleSummaryProvider="true"
             />
