@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/confirmAddContact"
+        android:title="Confirm"
+        android:icon="@drawable/done_40px"
+        app:showAsAction="always"
+        />
+
+</menu>

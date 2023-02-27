@@ -6,9 +6,8 @@
         android:id="@+id/profile"
         android:icon="@drawable/account_circle_48px"
         android:title="Profile"
-        app:showAsAction="always"
 
-        />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/addContact"
@@ -19,6 +18,6 @@
         android:id="@+id/help"
         android:icon="@drawable/info_48px"
         android:title="Help"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 
 </menu>

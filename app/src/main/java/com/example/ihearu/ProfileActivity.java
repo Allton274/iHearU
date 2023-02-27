@@ -6,6 +6,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
+import java.util.Objects;
+
 public class ProfileActivity extends AppCompatActivity {
 
     @Override
@@ -13,6 +15,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_activity);
         setSupportActionBar(findViewById(R.id.toolbar));
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()

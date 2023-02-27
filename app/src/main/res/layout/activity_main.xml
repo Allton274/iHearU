@@ -44,29 +44,28 @@
                     android:layout_gravity="center_horizontal"/>
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:text="@string/emergency_msg"
-                    android:textSize="22sp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginStart="7pt"
-                    android:layout_marginEnd="7pt"
-                    android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/helvetica"
-                    />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="177dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="7pt"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="7pt"
+                android:fontFamily="@font/helvetica"
+                android:text="@string/emergency_msg"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
 
-                <com.google.android.material.slider.Slider
-                    android:layout_width="200sp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/slider1"
-                    android:layout_gravity="center"
-                    android:contentDescription="Slider 1"
-                    app:thumbColor="#d4330f"
-                    app:trackColor="#4b9ff6"
-                    android:layout_marginTop="50dp"
-                    android:valueTo="10"/>
+<!--            TODO: trackHeight to make the track bigger, thumbRadius to make the circle bigger-->
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider1"
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="Slider 1"
+                android:valueTo="10"
+                app:thumbColor="#d4330f"
+                app:trackColor="#4b9ff6" />
 
             <com.google.android.material.slider.Slider
                 android:id="@+id/slider2"
@@ -112,6 +111,36 @@
                         android:layout_marginStart="10dp"
                         android:visibility="visible"/>
                 </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profileWarningLayout"
+                android:layout_marginStart="5pt"
+                android:layout_marginTop="5pt"
+                android:visibility="invisible"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/error_48px"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/createProfileWarning"
+
+                    android:textColor="#ff0000"
+                    android:fontFamily="@font/helvetica_light"
+                    android:textSize="16sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="2pt"
+                    android:layout_marginEnd="8pt"
+                    android:text="@string/create_profile_warning"/>
+
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
