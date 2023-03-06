@@ -23,7 +23,6 @@
             android:elevation="4dp"
             android:theme="@style/BarTheme"
             app:title="New Contact"
-
             >
             <!--                        TODO INSERT LOGO THRU IMAGEVIEW-->
 <!--            <ImageView-->
@@ -75,16 +74,16 @@
             android:layout_marginEnd="20sp">
             <EditText
                 android:layout_width="0dp"
-
                 android:layout_height="wrap_content"
                 android:minHeight="50dp"
                 android:layout_weight="50"
                 android:inputType="numberSigned"
                 android:id="@+id/numberField"
                 android:autofillHints="phone"
-
+                android:maxLength="10"
                 android:layout_gravity="center_horizontal"
                 android:hint="@string/phone_number_hint"/>
+
 
         </LinearLayout>
         <LinearLayout

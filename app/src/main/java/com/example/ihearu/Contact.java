@@ -5,10 +5,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-public class Contact {
+public class Contact implements Serializable {
 
     @NonNull
     @PrimaryKey
@@ -43,6 +44,7 @@ public class Contact {
         contactId = UUID.randomUUID().toString();
     }
 
-
-
+    public void setContactId(@NonNull String contactId) {
+        this.contactId = contactId;
+    }
 }

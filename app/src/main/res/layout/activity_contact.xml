@@ -68,6 +68,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#00a152"
         app:srcCompat="@drawable/add_48px" />
     <ProgressBar
         android:layout_width="wrap_content"

@@ -4,6 +4,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -18,7 +19,14 @@ public interface ContactDao {
     @Query("SELECT * FROM contact")
     Flowable<List<Contact>> getAllContactsAsync();
 
+    @Query("SELECT * FROM Contact WHERE do_text IS 1")
+    Flowable<List<Contact>> getTextingContacts();
 
+    @Query("SELECT * FROM Contact WHERE do_call IS 1")
+    Flowable<List<Contact>> getCallingContacts();
+
+    @Query("SELECT * FROM Contact WHERE do_email IS 1")
+    Flowable<List<Contact>> getEmailingContacts();
 
     @Query("SELECT * FROM contact WHERE name LIKE :name")
     Contact getContact(String name);
@@ -28,16 +36,13 @@ public interface ContactDao {
     Contact getContactById(String id);
 
     @Insert
-    void addContact(Contact contact);
-
-    @Insert
     Completable addContactAsync(Contact contact);
 
     @Delete
-    void removeContact(Contact contact);
-
-    @Delete
     Completable removeContactAsync(Contact contact);
+
+    @Update
+    Completable updateContactAsync(Contact contact);
 
 
 

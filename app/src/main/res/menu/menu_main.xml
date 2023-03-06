@@ -14,10 +14,5 @@
         android:icon="@drawable/manage_accounts_48px"
         android:title="Add Contact"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/help"
-        android:icon="@drawable/info_48px"
-        android:title="Help"
-        app:showAsAction="ifRoom" />
 
 </menu>

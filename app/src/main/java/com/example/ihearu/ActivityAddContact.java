@@ -1,10 +1,12 @@
 package com.example.ihearu;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.room.Room;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.transition.Slide;
 import android.util.AttributeSet;
@@ -58,7 +60,7 @@ public class ActivityAddContact extends AppCompatActivity {
 //        Contact cont = new Contact("iojdc", "610", "adityadora", false, true, true);
 //
         AppDatabase db = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "database-name").allowMainThreadQueries().build();
+                AppDatabase.class, "database-name").build();
 
         contactDao = db.contactDao();
 //
@@ -83,14 +85,36 @@ public class ActivityAddContact extends AppCompatActivity {
 
         switch(item.getItemId()){
             case R.id.confirmAddContact:
-                Contact cont = new Contact(name.getText().toString(), phoneNumber.getText().toString(), email.getText().toString(), doEmail.isChecked(), doText.isChecked(), doCall.isChecked());
-                disposable.add(contactDao.addContactAsync(cont).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(() -> Toast.makeText(getApplicationContext(), "Added Contact: " + name.getText().toString(), Toast.LENGTH_SHORT).show()));
-                finish();
+                if(!hasRequiredFields()){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setMessage("You must enter the name, phone number, and email address of the contact and select at least one action.")
+                            .setTitle("Required Fields").setIcon(R.drawable.warning_40px)
+                            .setPositiveButton("Ok", (dialogInterface, i) -> dialogInterface.dismiss());
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+
+
+                }
+
+                else{
+                    Contact cont = new Contact(name.getText().toString(), phoneNumber.getText().toString(), email.getText().toString(), doEmail.isChecked(), doText.isChecked(), doCall.isChecked());
+                    disposable.add(contactDao.addContactAsync(cont).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(() -> Toast.makeText(getApplicationContext(), "Added Contact: " + name.getText().toString(), Toast.LENGTH_SHORT).show()));
+                    finish();
+                }
+
+
             default:
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    public boolean hasRequiredFields(){
+
+        return ((!name.getText().toString().equals("") && !phoneNumber.getText().toString().equals("")
+                && !email.getText().toString().equals("")) && (doEmail.isChecked() || doText.isChecked() || doCall.isChecked()));
     }
 
 }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.DropDownPreference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import java.util.Objects;
@@ -23,12 +24,18 @@ public class ProfileActivity extends AppCompatActivity {
                     .commit();
         }
 
+
+
     }
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
+            //TODO: To test sending email, enable dropdown with list of all contacts with ``dropDownPreference.setEntries()``
+            DropDownPreference dropDownPreference = findPreference("drop");
+
+
         }
     }
 }

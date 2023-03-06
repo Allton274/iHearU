@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -127,7 +126,7 @@ public class ActivityContact extends AppCompatActivity {
             }
             runOnUiThread(() -> {
                 noContactsText.setVisibility(View.GONE);
-                contactList.setAdapter(new ContactsAdapter(contactNames));
+                contactList.setAdapter(new ContactsAdapter(contactNames, contacts));
                 contactList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
             });
 
