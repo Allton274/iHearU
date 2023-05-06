@@ -23,7 +23,7 @@
                 android:background="@color/material_dynamic_primary40"
                 android:elevation="4dp"
                 android:theme="@style/BarTheme"
-                app:title="Contacts"
+                app:title="Manage Contacts"
 
                 >
                 <!--                        TODO INSERT LOGO THRU IMAGEVIEW-->

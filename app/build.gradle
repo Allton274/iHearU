@@ -26,6 +26,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    sourceSets {
+        main {
+            assets.srcDirs += "$buildDir/generated/assets"
+        }
+    }
 
     packagingOptions{
         resources.excludes.add("META-INF/*")
@@ -47,9 +52,13 @@ dependencies {
     implementation 'androidx.preference:preference:1.2.0'
     implementation 'androidx.navigation:navigation-fragment:2.5.3'
     implementation 'androidx.navigation:navigation-ui:2.5.3'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation 'de.pentabyte:google-static-map-creator:2.3.0'
+//    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.0@aar'
+//    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0'
     implementation 'androidx.mediarouter:mediarouter:1.3.1'
+    implementation 'com.alphacephei:vosk-android:0.3.46@aar'
+    implementation 'net.java.dev.jna:jna:5.9.0@aar'
     implementation files('libs/mail.jar')
     implementation files('libs/activation.jar')
     implementation files('libs/additionnal.jar')
@@ -68,4 +77,16 @@ dependencies {
     implementation 'com.google.oauth-client:google-oauth-client-jetty:1.34.1'
     implementation 'com.google.apis:google-api-services-gmail:v1-rev20220404-2.0.0'
 }
+
+tasks.register('genUUID') {
+    def uuid = UUID.randomUUID().toString()
+    def odir = file("$buildDir/generated/assets/model-en-us")
+    def ofile = file("$odir/uuid")
+    doLast {
+        mkdir odir
+        ofile.text = uuid
+    }
+}
+
+preBuild.dependsOn(genUUID)
 

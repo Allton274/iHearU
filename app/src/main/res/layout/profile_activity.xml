@@ -26,31 +26,153 @@
                 app:title="Your Profile"
 
                 >
-                <!--                        TODO INSERT LOGO THRU IMAGEVIEW-->
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
+
             </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:text="@string/background_info"
-            android:textSize="25sp"
-            android:fontFamily="@font/helvetica_bold"/>
 
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/profile"-->
+<!--            android:layout_marginTop="10sp"-->
+<!--            android:orientation="vertical"-->
+<!--            >-->
+
+<!--        </LinearLayout>-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/profile"
-            android:layout_marginTop="30sp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarContainer"
+            app:layout_constraintHorizontal_weight="1"
             android:orientation="vertical"
-            >
+            android:id="@+id/inputLayouts">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="General"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/helvetica_bold"
+                android:textSize="32sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="20sp"
+                android:layout_marginEnd="20sp">
+                <EditText
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yourNameField"
+                    android:minHeight="50dp"
+                    android:layout_weight="50"
+                    android:inputType="textAutoCorrect"
+                    android:autofillHints="name"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="Your Name *"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="20sp"
+                android:layout_marginEnd="20sp">
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:layout_weight="50"
+                    android:inputType="textAutoCorrect"
+                    android:id="@+id/dangerPhrase"
+                    android:autofillHints="phone"
+
+                    android:layout_gravity="center_horizontal"
+                    android:hint="Danger Phrase *"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="20sp"
+                android:layout_marginEnd="20sp"
+                >
+                <EditText
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:layout_weight="50"
+                    android:id="@+id/emergencyMsg"
+                    android:inputType="textAutoCorrect"
+                    android:autofillHints="emailAddress"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="Emergency Message *"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintTop_toBottomOf="@+id/inputLayouts"
+            android:layout_marginTop="20sp"
+
+            app:dividerColor="@color/black"
+            android:id="@+id/divider"/>
+
+        <LinearLayout
+            android:layout_marginTop="10sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:layout_marginBottom="15sp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/helvetica_bold"
+                android:textSize="32sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Listening Enabled:"
+
+                    android:textColor="@color/black"
+                    android:textSize="27sp"
+                    android:fontFamily="@font/helvetica_bold"
+                    />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/listeningEnabled"/>
+            </LinearLayout>
+
+
+
+
 
         </LinearLayout>
 

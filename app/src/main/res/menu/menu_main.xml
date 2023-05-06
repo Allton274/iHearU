@@ -15,4 +15,10 @@
         android:title="Add Contact"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/restartListening"
+        android:icon="@drawable/baseline_restart_alt_40"
+        android:title="Restart Listening"
+        app:showAsAction="always"/>
+
 </menu>

@@ -48,4 +48,19 @@
     <string name="name_hint">Name *</string>
     <string name="phone_number_hint">Phone Number *</string>
     <string name="contact_information_title">Contact Information</string>
+    <string name="recognize_microphone">Recognize Microphone</string>
+    <string name="preparing">Preparing recognizer</string>
+    <string name="starting">Starting</string>
+    <string name="stop_file">Stop File</string>
+    <string name="recognize_file">Recognize File</string>
+    <string name="stop_microphone">Stop Microphone</string>
+    <string name="say_something">Say Something</string>
+
+    <string name="kws_caption">To start demonstration say \"oh mighty computer\".</string>
+    <string name="menu_caption">Say \"digits\", \"forecast\" or \"phones\" to choose the grammar, language model or phonetic decoder example.</string>
+    <string name="digits_caption">To try recognition of digits: say something like \"one two three four five\".</string>
+    <string name="forecast_caption">To try recognition of a weather forecast like \"sunny spells on Wednesday\".</string>
+    <string name="phone_caption">To try phonetic recognition say anything.</string>
+    <string name="caution_message">This model is prone to false alarms! Nothing is perfect, especially something as subjective as voice recognition that even humans have trouble deciphering. Don\'t make your Danger Phrase anything that\'s too common, and always be vigilant with such a tool.</string>
+
 </resources>
