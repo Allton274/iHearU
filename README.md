@@ -2,6 +2,10 @@
 
 iHearU is a mobile app for Android that uses **Continuous Speech Recognition** to notify emergency contacts of a potentially dangerous situation. Built in Java, iHearU provides intuitive usability and versatility to enable the user to get the most out of the app. 
 
+<figure>
+  <img src="https://github.com/Allton274/iHearU/blob/main/app/src/main/res/drawable/ihearu_logo.png"/>
+</figure>
+
 # Value
 What makes this app so great is that it even works when the phone is __asleep/out of focus of the app__. Leveraging the [**PocketSphinx**](https://pypi.org/project/pocketsphinx/) API by Carnegie Mellon researchers, iHearU is able to parse sound passively and trigger when it hears the set keyword.
 
