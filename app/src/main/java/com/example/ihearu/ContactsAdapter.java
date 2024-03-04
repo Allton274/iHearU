@@ -1,13 +1,10 @@
 package com.example.ihearu;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,7 +17,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView listHolder;
+        private final TextView listHolder;
         //TODO: Finish implementing this from Android Docs
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

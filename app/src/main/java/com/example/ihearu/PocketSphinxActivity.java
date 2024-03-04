@@ -136,16 +136,23 @@ public class PocketSphinxActivity extends AppCompatActivity implements Recogniti
             return;
 
         String text = hypothesis.getHypstr();
-        if (text.equals(KEYPHRASE))
-            switchSearch(MENU_SEARCH);
-        else if (text.equals(DIGITS_SEARCH))
-            switchSearch(DIGITS_SEARCH);
-        else if (text.equals(PHONE_SEARCH))
-            switchSearch(PHONE_SEARCH);
-        else if (text.equals(FORECAST_SEARCH))
-            switchSearch(FORECAST_SEARCH);
-        else
-            ((TextView) findViewById(R.id.result_text)).setText(text);
+        switch (text) {
+            case KEYPHRASE:
+                switchSearch(MENU_SEARCH);
+                break;
+            case DIGITS_SEARCH:
+                switchSearch(DIGITS_SEARCH);
+                break;
+            case PHONE_SEARCH:
+                switchSearch(PHONE_SEARCH);
+                break;
+            case FORECAST_SEARCH:
+                switchSearch(FORECAST_SEARCH);
+                break;
+            default:
+                ((TextView) findViewById(R.id.result_text)).setText(text);
+                break;
+        }
     }
 
     /**

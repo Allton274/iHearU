@@ -2,21 +2,20 @@ package com.example.ihearu;
 
 import static android.content.ContentValues.TAG;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -26,7 +25,6 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -68,7 +66,7 @@ public class ActivitySignIn extends AppCompatActivity {
             intent.putExtra("name", account.getDisplayName());
             intent.putExtra("pfp", pfpBit);
             Toast.makeText(this, "Signed in Successfully!", Toast.LENGTH_SHORT).show();
-            Log.d("Account", account.getEmail());
+            Log.d("Account", Objects.requireNonNull(account.getEmail()));
             startActivity(intent);
         }
 
@@ -76,10 +74,8 @@ public class ActivitySignIn extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.sign_in_button:
-                        signIn();
-                        break;
+                if (view.getId() == R.id.sign_in_button) {
+                    signIn();
                 }
             }
         });

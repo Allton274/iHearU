@@ -163,57 +163,50 @@ public class ProfileActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case(R.id.confirmProfile):
-                if(!hasRequiredFields()){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setMessage("You must enter your name, Danger Phrase, and emergency message.")
-                            .setTitle("Required Fields").setIcon(R.drawable.warning_40px)
-                            .setPositiveButton("Ok", (dialogInterface, i) -> dialogInterface.dismiss());
+        if (item.getItemId() == R.id.confirmProfile) {
+            if (!hasRequiredFields()) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("You must enter your name, Danger Phrase, and emergency message.")
+                        .setTitle("Required Fields").setIcon(R.drawable.warning_40px)
+                        .setPositiveButton("Ok", (dialogInterface, i) -> dialogInterface.dismiss());
 
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-                }
-                else if(dangerPhrase.getText().toString().split(" ").length < 4){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setMessage("The Danger Phrase must be at least 4 words long.")
-                            .setTitle("Danger Phrase too Short").setIcon(R.drawable.warning_40px)
-                            .setPositiveButton("Ok", (dialogInterface, i) -> dialogInterface.dismiss());
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            } else if (dangerPhrase.getText().toString().split(" ").length < 4) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("The Danger Phrase must be at least 4 words long.")
+                        .setTitle("Danger Phrase too Short").setIcon(R.drawable.warning_40px)
+                        .setPositiveButton("Ok", (dialogInterface, i) -> dialogInterface.dismiss());
 
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-                } else{
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("name", name.getText().toString());
-                    editor.putString("dangerPhrase", dangerPhrase.getText().toString());
-                    editor.putString("emergencyMsg", emergencyMsg.getText().toString());
-                    editor.putBoolean("isListening", isListening.isChecked());
-                    editor.apply();
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            } else {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("name", name.getText().toString());
+                editor.putString("dangerPhrase", dangerPhrase.getText().toString());
+                editor.putString("emergencyMsg", emergencyMsg.getText().toString());
+                editor.putBoolean("isListening", isListening.isChecked());
+                editor.apply();
 
-                    currentIsListening = isListening.isChecked();
-                    currentEmergencyMsg = emergencyMsg.getText().toString();
-                    currentName = name.getText().toString();
-                    currentDangerPhrase = dangerPhrase.getText().toString();
+                currentIsListening = isListening.isChecked();
+                currentEmergencyMsg = emergencyMsg.getText().toString();
+                currentName = name.getText().toString();
+                currentDangerPhrase = dangerPhrase.getText().toString();
 
-                    Toast.makeText(this, "Changes Saved", Toast.LENGTH_SHORT).show();
-                    confirmProfile.setVisible(false);
-                    if(isListening.isChecked()){
-                        stopService(new Intent(this, RecognizerService.class));
-                        startService(new Intent(this, RecognizerService.class));
-                    }
-
-                    else{
-                        RecognizerService.disabledSetting = true;
-                        stopService(new Intent(this, RecognizerService.class));
-                    }
-
-
+                Toast.makeText(this, "Changes Saved", Toast.LENGTH_SHORT).show();
+                confirmProfile.setVisible(false);
+                if (isListening.isChecked()) {
+                    stopService(new Intent(this, RecognizerService.class));
+                    startService(new Intent(this, RecognizerService.class));
+                } else {
+                    RecognizerService.disabledSetting = true;
+                    stopService(new Intent(this, RecognizerService.class));
                 }
 
-            default:
-                return super.onOptionsItemSelected(item);
 
+            }
         }
+        return super.onOptionsItemSelected(item);
 
     }
 
@@ -223,13 +216,8 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void checkDifferentValues(){
-        if((currentName.equals(name.getText().toString()) && currentDangerPhrase.equals(dangerPhrase.getText().toString()) &&
-        currentEmergencyMsg.equals(emergencyMsg.getText().toString()) && currentIsListening == isListening.isChecked())){
-            confirmProfile.setVisible(false);
-        }
-        else{
-            confirmProfile.setVisible(true);
-        }
+        confirmProfile.setVisible(!currentName.equals(name.getText().toString()) || !currentDangerPhrase.equals(dangerPhrase.getText().toString()) ||
+                !currentEmergencyMsg.equals(emergencyMsg.getText().toString()) || currentIsListening != isListening.isChecked());
 
     }
 

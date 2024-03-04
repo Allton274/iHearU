@@ -25,8 +25,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class ActivityContact extends AppCompatActivity {
 
-//    private AppBarConfiguration appBarConfiguration;
-    private ActivityContactBinding binding;
     RecyclerView contactList;
     TextView noContactsText;
     AppDatabase db;
@@ -40,7 +38,8 @@ public class ActivityContact extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityContactBinding.inflate(getLayoutInflater());
+        //    private AppBarConfiguration appBarConfiguration;
+        com.example.ihearu.databinding.ActivityContactBinding binding = ActivityContactBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
@@ -101,7 +100,7 @@ public class ActivityContact extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mDisposable.add(contactDao.getAllContactsAsync().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(allContacts -> handleDBCompleted(allContacts), Throwable::printStackTrace));
+                .subscribe(this::handleDBCompleted, Throwable::printStackTrace));
 
 
     }
